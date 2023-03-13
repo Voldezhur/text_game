@@ -1,8 +1,10 @@
 // -------- To Do --------
 /*
-    1. Make stats and actions scalable to allow for addition of new ones later
-    2. Display both the player actions and actions appropriate for the location
-    3. Separate classes and main into different files
+    . Make stats and actions scalable to allow for addition of new ones later
+    . Display both the player actions and actions appropriate for the location
+    . Separate classes and main into different files
+    . Put everuthing into different folders
+    . Put To Do list into separate file
 */
 
 
