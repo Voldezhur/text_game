@@ -1,0 +1,3 @@
+. Make stats and actions scalable to allow for addition of new ones later
+. Display both the player actions and actions appropriate for the location
+. Put everything into different folders
