@@ -16,25 +16,10 @@ class Location
 
 public:
     // default constructor
-    Location()
-    {
-        south = west = north = east = nullptr;
-
-        flavourText = "placeholderFlavourText";
-        description = "placeholderDescription";
-
-        canForage = canHunt = isHostile = true;
-    }
+    Location();
 
     // constructor
-    Location(bool _canForage, bool _canHunt, bool _isHostile)
-    {
-        Location();
-
-        canForage = _canForage;
-        canHunt = _canHunt;
-        isHostile = _isHostile;
-    }
+    Location(bool _canForage, bool _canHunt, bool _isHostile);
 
 
     // ==========================

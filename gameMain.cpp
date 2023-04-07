@@ -1,12 +1,3 @@
-// -------- To Do --------
-/*
-    . Make stats and actions scalable to allow for addition of new ones later
-    . Display both the player actions and actions appropriate for the location
-    . Separate classes and main into different files
-    . Put everuthing into different folders
-    . Put To Do list into separate file
-*/
-
 // g++ -o gameMain gameMain.cpp Location.cpp Character.cpp && ./gameMain
 
 
