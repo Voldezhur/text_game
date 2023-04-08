@@ -8,6 +8,8 @@
 
 int main()
 {
+    std::string divider = "\n========================\n\n";
+    
     // greetings and character creation
     std::cout << "Game started" << "\n\n";
     std::cout << "Default stats:";
@@ -130,17 +132,20 @@ int main()
         player.name = "player";
     }
 
-    std::cout << "\nGood luck, " << player.name << "! You'll need it\n\n";
+    std::cout << "\nGood luck, " << player.name << "! You'll need it" << divider;
 
 
     // ===================================
     // map creation
     Location* spawnArea = new Location(true, true, false);
     spawnArea->setFlavourText("a clearing of a forest, filled with all types of flowers and wild plants.\nYou sometimes see an occasional squirrel jump from one tree to another");
+    spawnArea->setDescription("a forest clearing");
 
-    Location* west = new Location(true, true, false);
-    
-    spawnArea->setWest(west);
+    Location* town = new Location(true, true, false);
+    town->setFlavourText("the main square of a relatively large town, with many shops and vendors scattered about");
+    town->setDescription("a town");
+
+    spawnArea->setWest(town);
 
 
     // ===================================
@@ -148,14 +153,14 @@ int main()
     Location* playerLocation = spawnArea;
 
     std::cout << "You awaken from your nap in the forest clearing, gather your supplies and prepare to move out\n";    
-    std::cout << "What do you do?\n";
+    std::cout << "What do you do?";
 
     bool mainGameLoop = true;
     // main game loop
     while(mainGameLoop)
     {
         // action selection
-        std::cout << "\nMake a selection:\n";
+        std::cout << divider << "Make a selection:\n";
 
         std::cout << "1. Look around\n2. Show stats\n3. Travel\n4. Exit\n";
         int intInput;
@@ -184,7 +189,7 @@ int main()
             case 3:
             {
                 movementSelection:
-                std::cout << "\nWhere to?\n";
+                std::cout << divider << "Where to?\n";
                 std::cout << "1. South\n2. West\n3. East\n4. North\n5. Stop travelling\n";
                 
                 std::cin >> intInput;
@@ -197,7 +202,7 @@ int main()
                         if(playerLocation->getSouth())
                         {
                             playerLocation = playerLocation->getSouth();
-                            std::cout << "Travelled south\n";
+                            std::cout << "\nTravelled to " << playerLocation->getDescription() << '\n';
                         }
                         
                         else
@@ -215,9 +220,9 @@ int main()
                         if(playerLocation->getWest())
                         {
                             playerLocation = playerLocation->getWest();
-                            std::cout << "Travelled west\n";
+                            std::cout << "\nTravelled to " << playerLocation->getDescription() << '\n';                        
                         }
-                        
+
                         else
                         {
                             std::cout << "There is nothing to the west\n";
@@ -234,9 +239,9 @@ int main()
                         if(playerLocation->getEast())
                         {
                             playerLocation = playerLocation->getEast();
-                            std::cout << "Travelled east\n";
+                            std::cout << "\nTravelled to " << playerLocation->getDescription() << '\n';                        
                         }
-                        
+
                         else
                         {
                             std::cout << "There is nothing to the east\n";
@@ -252,7 +257,7 @@ int main()
                         if(playerLocation->getNorth())
                         {
                             playerLocation = playerLocation->getNorth();
-                            std::cout << "Travelled north\n";
+                            std::cout << "\nTravelled to " << playerLocation->getDescription() << '\n';
                         }
                         
                         else
@@ -294,7 +299,7 @@ int main()
     }
 
     // game end
-    std::cout << "\nGame ended\n";
+    std::cout << divider << "Game ended\n";
 
     delete spawnArea;
 }
