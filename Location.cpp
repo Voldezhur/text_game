@@ -19,6 +19,9 @@ Location::Location(bool _canForage, bool _canHunt, bool _isHostile)
     canForage = _canForage;
     canHunt = _canHunt;
     isHostile = _isHostile;
+
+    flavourText = "placeholderFlavourText";
+    description = "placeholderDescription";
 }
 
 

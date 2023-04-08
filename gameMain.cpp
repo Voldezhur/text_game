@@ -14,117 +14,136 @@ int main()
     
     Character player(1, 5, 5, 5);
 
-
-    // stat selection
-    int skillPoints = 5;
+    std::cout << '\n' << player.str << '\n' << player.end << '\n' << player.lck << "\n\n";
     
-    while(skillPoints)
+    std::cout << "Skip character creation?\ny/n\n";
+    char charInput;
+    std::cin >> charInput;
+
+    // character creation
+    if(charInput == 'n')
     {
-        std::cout << '\n' << player.str << '\n' << player.end << '\n' << player.lck << "\n\n";
-        std::cout << "You have " << skillPoints << " points to spend\n";
-        std::cout << "\nMake a selection:\n";
-
-        std::cout << "1. Add point to strength\n2. Add point to Endurance\n3. Add point to luck\n";
-
-        int input;
-        std::cin >> input;
-        // player choice of stat
-        switch(input)
+        // stat selection
+        int skillPoints = 5;
+        
+        while(skillPoints)
         {
-            // strength
-            case 1:
-            {
-                player.str++;
-                skillPoints--;
+            std::cout << '\n' << player.str << '\n' << player.end << '\n' << player.lck << "\n\n";
+            std::cout << "You have " << skillPoints << " points to spend\n";
+            std::cout << "\nMake a selection:\n";
 
+            std::cout << "1. Add point to strength\n2. Add point to Endurance\n3. Add point to luck\n";
+
+            int input;
+            std::cin >> input;
+            // player choice of stat
+            switch(input)
+            {
+                // strength
+                case 1:
+                {
+                    player.str++;
+                    skillPoints--;
+
+                }
+                break;
+                
+                // endurance
+                case 2:
+                {
+                    player.end++;
+                    skillPoints--;
+                }
+                break;
+
+                // luck
+                case 3:
+                {
+                    player.lck++;
+                    skillPoints--;
+                }
+                break;
+
+                default:
+                {
+                    std::cout << "\nIncorrect choice\n";
+                }
+                break;
+            }
+        }
+
+
+        // final stat output
+        std::cout << "\nFinal stats:";
+        std::cout << '\n' << player.str << '\n' << player.end << '\n' << player.lck << "\n\n";
+
+        // skill confirmation
+        std::cout << "\nAre these stats ok?\n";
+
+        std::cout << "\nMake a selection:\n";
+        std::cout << "y/n\n";
+
+        std::string input;
+        
+        statConfirmLoop:
+        std::cin >> input;
+
+        // check if input is one character long
+        while(input.length() != 1)
+        {
+            std::cout << "\nIncorrect choice\n";
+            std::cin >> input;
+        }
+
+        switch(input[0])
+        {
+            case 'y':
+            {
+                std::cout << "\nStats confirmed\n";
+            }
+            break;
+
+            case 'n':
+            {
+                std::cout << "\nTough luck\n";
             }
             break;
             
-            // endurance
-            case 2:
-            {
-                player.end++;
-                skillPoints--;
-            }
-            break;
-
-            // luck
-            case 3:
-            {
-                player.lck++;
-                skillPoints--;
-            }
-            break;
-
             default:
             {
                 std::cout << "\nIncorrect choice\n";
+                goto statConfirmLoop;
             }
             break;
         }
-    }
-
-
-    // final stat output
-    std::cout << "\nFinal stats:";
-    std::cout << '\n' << player.str << '\n' << player.end << '\n' << player.lck << "\n\n";
-
-    // skill confirmation
-    std::cout << "\nAre these stats ok?\n";
-
-    std::cout << "\nMake a selection:\n";
-    std::cout << "y/n\n";
-
-    std::string input;
-    
-    statConfirmLoop:
-    std::cin >> input;
-
-    // check if input is one character long
-    while(input.length() != 1)
-    {
-        std::cout << "\nIncorrect choice\n";
-        std::cin >> input;
-    }
-
-    switch(input[0])
-    {
-        case 'y':
-        {
-            std::cout << "\nStats confirmed\n";
-        }
-        break;
-
-        case 'n':
-        {
-            std::cout << "\nTough luck\n";
-        }
-        break;
         
-        default:
-        {
-            std::cout << "\nIncorrect choice\n";
-            goto statConfirmLoop;
-        }
-        break;
+        std::cout << "\nLastly, select a name:\n";
+        
+        // get player name
+        std::cin >> std::ws;
+        std::getline(std::cin, player.name);
     }
-    
-    std::cout << "\nLastly, select a name:\n";
-    
-    // get player name
-    std::cin >> std::ws;
-    std::getline(std::cin, player.name);
+
+    // if skipped character creation
+    else
+    {
+        player.name = "player";
+    }
 
     std::cout << "\nGood luck, " << player.name << "! You'll need it\n\n";
 
 
-    
+    // ===================================
     // map creation
     Location* spawnArea = new Location(true, true, false);
     spawnArea->setFlavourText("a clearing of a forest, filled with all types of flowers and wild plants.\nYou sometimes see an occasional squirrel jump from one tree to another");
 
+    Location* west = new Location(true, true, false);
+    
+    spawnArea->setWest(west);
 
 
+    // ===================================
     // game start
     Location* playerLocation = spawnArea;
 
@@ -138,7 +157,7 @@ int main()
         // action selection
         std::cout << "\nMake a selection:\n";
 
-        std::cout << "1. Look around\n2. Show stats\n3. Exit\n";
+        std::cout << "1. Look around\n2. Show stats\n3. Travel\n4. Exit\n";
         int intInput;
         
         actionSelection:
@@ -150,7 +169,7 @@ int main()
             // look around
             case 1:
             {
-                playerLocation->printFlavourText();
+                playerLocation->lookAround();
             }
             break;
             
@@ -161,8 +180,106 @@ int main()
             }
             break;
 
-            // stop game
+            // movement
             case 3:
+            {
+                movementSelection:
+                std::cout << "\nWhere to?\n";
+                std::cout << "1. South\n2. West\n3. East\n4. North\n5. Stop travelling\n";
+                
+                std::cin >> intInput;
+
+                switch(intInput)
+                {
+                    // south
+                    case 1:
+                    {
+                        if(playerLocation->getSouth())
+                        {
+                            playerLocation = playerLocation->getSouth();
+                            std::cout << "Travelled south\n";
+                        }
+                        
+                        else
+                        {
+                            std::cout << "There is nothing to the south\n";
+                        }
+                        
+                        goto movementSelection;
+                    }
+                    break;
+
+                    // west
+                    case 2:
+                    {
+                        if(playerLocation->getWest())
+                        {
+                            playerLocation = playerLocation->getWest();
+                            std::cout << "Travelled west\n";
+                        }
+                        
+                        else
+                        {
+                            std::cout << "There is nothing to the west\n";
+                        }
+
+                        goto movementSelection;
+
+                    }
+                    break;
+
+                    // east
+                    case 3:
+                    {
+                        if(playerLocation->getEast())
+                        {
+                            playerLocation = playerLocation->getEast();
+                            std::cout << "Travelled east\n";
+                        }
+                        
+                        else
+                        {
+                            std::cout << "There is nothing to the east\n";
+                        }
+
+                        goto movementSelection;
+                    }
+                    break;
+
+                    // north
+                    case 4:
+                    {
+                        if(playerLocation->getNorth())
+                        {
+                            playerLocation = playerLocation->getNorth();
+                            std::cout << "Travelled north\n";
+                        }
+                        
+                        else
+                        {
+                            std::cout << "There is nothing to the north\n";
+                        }
+
+                        goto movementSelection;
+                    }
+                    break;
+
+                    // stop Travelling
+                    case 5:
+                    break;
+
+                    default:
+                    {
+                        std::cout << "\nIncorrect choice, try again\n";
+                        goto movementSelection;
+                    }
+                    break;
+                }
+            }
+            break;
+
+            // stop game
+            case 4:
             {
                 mainGameLoop = false;
             }
