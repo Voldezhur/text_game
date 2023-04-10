@@ -33,19 +33,22 @@ void Character::printStats()
     std::cout << "\nLevel\t\t-\t" << lvl;
       
     std::cout << '\n' << str << '\n' << end << '\n' << lck << '\n';
+
+    std::cout << "\nHealth\t\t-\t" << hp << '\n';
+    std::cout << "Damage\t\t-\t" << dmg;
 }
 
 // fight method, returns true, if won, false if lost
-bool Character::fight(Character* enemy)
+bool Character::fight(Character enemy)
 {
-    std::cout << "\nAttacked " << enemy->name << "!\n\n";
+    std::cout << "\nAttacked " << enemy.name << "!\n\n";
 
     bool fightLoop = true;
 
-    while(hp > 0 && enemy->hp > 0 && fightLoop)
+    while(hp > 0 && enemy.hp > 0 && fightLoop)
     {
         std::cout << "\nYour hp - " << hp << '\n';
-        std::cout << enemy->name << "'s hp - " << enemy->hp << '\n';
+        std::cout << enemy.name << "'s hp - " << enemy.hp << '\n';
 
         // player's turn
         std::cout << "Make a selection:\n";
@@ -55,7 +58,6 @@ bool Character::fight(Character* enemy)
         
         actionSelection:
         std::cin >> intInput;
-        std::cout << '\n';
 
         // player choice
         switch(intInput)
@@ -63,9 +65,9 @@ bool Character::fight(Character* enemy)
             // Attack
             case 1:
             {
-                enemy->hp -= dmg;
-                std::cout << "\nAttacked " << enemy->name << " for " << dmg << " damage!\n";
-                std::cout << enemy->name << "'s health is now " << enemy->hp << '\n';
+                enemy.hp -= dmg;
+                std::cout << "\nAttacked " << enemy.name << " for " << dmg << " damage!\n";
+                std::cout << enemy.name << "'s health is now " << enemy.hp << '\n';
             }
             break;
 
@@ -79,10 +81,10 @@ bool Character::fight(Character* enemy)
 
 
         // enemy's turn
-        if(enemy->hp > 0)
+        if(enemy.hp > 0)
         {
-            hp -= enemy->dmg;
-            std::cout << enemy->name << " attacks " << name << " for " << enemy->dmg << " damage!\n";
+            hp -= enemy.dmg;
+            std::cout << enemy.name << " attacks " << name << " for " << enemy.dmg << " damage!\n";
             std::cout << name << "'s health is now " << hp << '\n';
         }
     }
@@ -93,7 +95,7 @@ bool Character::fight(Character* enemy)
         return false;
     }
 
-    else if(hp > 0 && enemy->hp > 0)
+    else if(hp > 0 && enemy.hp > 0)
     {
         std::cout << "'\nFled, like a coward\n";
         return false;
@@ -101,6 +103,7 @@ bool Character::fight(Character* enemy)
 
     else
     {
+        std::cout << '\n' << enemy.name << " collapses on the ground, unconsious\n";
         std::cout << '\n' << name << " emerges victorious!\n";
         return true;
     }
