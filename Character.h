@@ -17,7 +17,7 @@ struct stat
 class Character
 {
 public:
-    int lvl;
+    int lvl, exp, hp, dmg;
     stat str, end, lck;
     std::string name;
 

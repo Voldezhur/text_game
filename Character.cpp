@@ -13,9 +13,13 @@ std::ostream &operator<<(std::ostream &stream, stat obj)
 Character::Character(int lv, int s, int e, int lc)
 {
     lvl = lv;
+    exp = 0;
     str.value = s;
     end.value = e;
     lck.value = lc;
+
+    hp = end.value * 10;
+    dmg = str.value * 2;
 
     str.statName = "Strength";
     end.statName = "Endurance";
