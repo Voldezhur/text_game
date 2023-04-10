@@ -162,6 +162,14 @@ int main()
 
     town->setNorth(lake);
 
+    
+    // ===================================
+    // enemy creation
+    Character boar(1, 2, 2, 1);
+    boar.name = "boar";
+
+    Character skeleton(3, 5, 5, 2);
+    skeleton.name = "skeleton";
 
     // ===================================
     // game start
@@ -184,7 +192,6 @@ int main()
         actionSelection:
         std::cin >> intInput;
 
-        std::cout << '\n';
         switch(intInput)
         {
             // look around
@@ -310,10 +317,20 @@ int main()
             {
                 if(playerLocation->canHunt)
                 {
-                    Character boar(1, 2, 2, 1);
-                    boar.name = "boar";
+                    bool victory = false;
 
-                    if(player.fight(&boar))
+                    // determine which enemy player will fight (based on location)
+                    if(playerLocation->getDescription() == "a forest clearing")
+                    {
+                        victory = player.fight(boar);
+                    }
+                    else if(playerLocation->getDescription() == "an abandoned dungeon")
+                    {
+                        victory = player.fight(skeleton);
+                    }
+                    
+                    // hunting combat encounter results
+                    if(victory)
                     {
                         std::cout << "\nVictory\n";
                     }

@@ -1,14 +1,18 @@
 --- short term
-. Make dmg in combat random 
+. Make dmg in combat random but still dependent on strength
 
 --- mid term
+. Make an ambushing mechanic dependent on luck to get first turn
+. Implement foraging mechanic
 . Add random combat encounters in hostile locations
-. Make an ambushing mechanic to get first turn
-. Make enemy movements random
+. Make enemy actions random
 
 --- long term
 . Add leveling system
+. Enemies drop exp according to their level
 . Add inventory
+. Polish hunting experience
+. Put all objects of classes into separate files for ease
 
 --- ideas
 . Have a pause between inputs so as to not  confuse the player with too much text at once
