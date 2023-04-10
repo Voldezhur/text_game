@@ -26,4 +26,7 @@ public:
 
     // prints stats
     void printStats();
+
+    // fight method, returns true, if won, false if lost
+    bool fight(Character* enemy);
 };
