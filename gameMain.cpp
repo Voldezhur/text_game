@@ -8,7 +8,7 @@
 
 int main()
 {
-    std::string divider = "\n========================\n\n";
+    std::string divider = "\n\n========================\n";
     
     // greetings and character creation
     std::cout << "Game started" << "\n\n";
@@ -138,14 +138,29 @@ int main()
     // ===================================
     // map creation
     Location* spawnArea = new Location(true, true, false);
-    spawnArea->setFlavourText("a clearing of a forest, filled with all types of flowers and wild plants.\nYou sometimes see an occasional squirrel jump from one tree to another");
+    spawnArea->setFlavourText("in a clearing of a forest, filled with all types of flowers and wild plants.\nYou sometimes see an occasional squirrel jump from one tree to another");
     spawnArea->setDescription("a forest clearing");
 
-    Location* town = new Location(true, true, false);
-    town->setFlavourText("the main square of a relatively large town, with many shops and vendors scattered about");
+
+    Location* town = new Location(false, false, false);
+    town->setFlavourText("at the main square of a relatively large town, with many shops and vendors scattered about");
     town->setDescription("a town");
 
     spawnArea->setWest(town);
+
+
+    Location* dungeon = new Location(true, true, true);    
+    dungeon->setFlavourText("in a damp, dark cave. A very unpleasant place to be in.\nYou can see rats, spiders and other critters scattering about as you traverse the cave\nYou also spot something shiny deeper in the darkness");
+    dungeon->setDescription("an abandoned dungeon");
+    
+    spawnArea->setNorth(dungeon);
+
+
+    Location* lake = new Location(true, false, false);
+    lake->setFlavourText("at a small lake. You can see fish in the water.\nYou think you could probably catch some of the fish, provided you had a fishing pole");
+    lake->setDescription("a lake");
+
+    town->setWest(lake);
 
 
     // ===================================
@@ -162,7 +177,8 @@ int main()
         // action selection
         std::cout << divider << "Make a selection:\n";
 
-        std::cout << "1. Look around\n2. Show stats\n3. Travel\n4. Exit\n";
+        std::cout << "1. Look around\n2. Show stats\n3. Travel\n4. Hunt\n";
+        std::cout << "\n5. Exit\n";
         int intInput;
         
         actionSelection:
@@ -190,7 +206,13 @@ int main()
             {
                 movementSelection:
                 std::cout << divider << "Where to?\n";
-                std::cout << "1. South\n2. West\n3. East\n4. North\n5. Stop travelling\n";
+                
+                if(playerLocation->getSouth()) std::cout << "1. South to " << playerLocation->getSouth()->getDescription() << '\n';
+                if(playerLocation->getWest()) std::cout << "2. West to " << playerLocation->getWest()->getDescription() << '\n';
+                if(playerLocation->getEast()) std::cout << "3. East to " << playerLocation->getEast()->getDescription() << '\n';
+                if(playerLocation->getNorth()) std::cout << "4. North to " << playerLocation->getNorth()->getDescription() << '\n';
+                
+                std::cout << "\n5. Stop travelling\n";
                 
                 std::cin >> intInput;
 
@@ -283,8 +305,23 @@ int main()
             }
             break;
 
-            // stop game
+            // hunt
             case 4:
+            {
+                if(playerLocation->canHunt)
+                {
+                    std::cout << "\nCan't hunt in this version of the game\n";
+                } 
+
+                else
+                {
+                    std::cout << "\nCan't hunt at this location\n";
+                }
+            }
+            break;
+
+            // stop game
+            case 5:
             {
                 mainGameLoop = false;
             }
@@ -302,4 +339,7 @@ int main()
     std::cout << divider << "Game ended\n";
 
     delete spawnArea;
+    delete town;
+    delete dungeon;
+    delete lake;
 }

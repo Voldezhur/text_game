@@ -1,3 +1,12 @@
-. Expand map with different named locations (forest, town, dungeon)
+--- short term
+. Fix segfault when travelling to dungeon
+
+--- mid term
+. Add hunting mechanic
+
+--- long term
+. Add inventory
+
+--- ideas
 . Make stats and actions scalable to allow for addition of new ones later
 . Display both the player actions and actions appropriate for the location
