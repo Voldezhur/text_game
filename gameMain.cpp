@@ -167,9 +167,12 @@ int main()
     // enemy creation
     Character boar(1, 2, 2, 1);
     boar.name = "boar";
+    boar.introduction = "A boar rushes at you from the shrubbery!";
 
     Character skeleton(3, 5, 5, 2);
     skeleton.name = "skeleton";
+    skeleton.introduction = "A skeleton shambles towards you!";
+
 
     // ===================================
     // game start
@@ -185,8 +188,8 @@ int main()
         // action selection
         std::cout << divider << "Make a selection:\n";
 
-        std::cout << "1. Look around\n2. Show stats\n3. Travel\n4. Hunt\n";
-        std::cout << "\n5. Exit\n";
+        std::cout << "1. Look around\n2. Show stats\n3. Travel\n4. Hunt\n5. Forage\n";
+        std::cout << "\n6. Exit\n";
         int intInput;
         
         actionSelection:
@@ -332,12 +335,12 @@ int main()
                     // hunting combat encounter results
                     if(victory)
                     {
-                        std::cout << "\nVictory\n";
+                        std::cout << "\nHunt successful\n";
                     }
                     
                     else
                     {
-                        std::cout << "\nYou lose\n";
+                        std::cout << "\nHunt unsuccessful\n";
 
                         if(player.hp <= 0)
                         {
@@ -353,8 +356,23 @@ int main()
             }
             break;
 
-            // stop game
+            // forage
             case 5:
+            {
+                if(playerLocation->canForage)
+                {
+                    std::cout << "\nCan't forage in current game version\n";
+                }
+
+                else
+                {
+                    std::cout << "\nCan't forage in this location\n";
+                }
+            }
+            break;
+
+            // stop game
+            case 6:
             {
                 mainGameLoop = false;
             }

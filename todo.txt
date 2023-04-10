@@ -1,10 +1,8 @@
 --- short term
-. Make dmg in combat random but still dependent on strength
+. Implement foraging mechanic
+. Add random combat encounters when foraging in hostile locations
 
 --- mid term
-. Make an ambushing mechanic dependent on luck to get first turn
-. Implement foraging mechanic
-. Add random combat encounters in hostile locations
 . Make enemy actions random
 
 --- long term
@@ -12,9 +10,13 @@
 . Enemies drop exp according to their level
 . Add inventory
 . Polish hunting experience
-. Put all objects of classes into separate files for ease
+. Make dmg in combat random but still dependent on strength
 
 --- ideas
+. Put all objects of classes into separate files for ease
+. Make an ambushing mechanic dependent on luck to get first turn
+
+--- not likely
 . Have a pause between inputs so as to not  confuse the player with too much text at once
 . Add ascii map that player can view with a command
 . Make stats and actions scalable to allow for addition of new ones later
