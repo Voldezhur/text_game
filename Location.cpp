@@ -14,7 +14,7 @@ Location::Location()
 // constructor
 Location::Location(bool _canForage, bool _canHunt, bool _isHostile)
 {
-    Location();
+    south = west = north = east = nullptr;
 
     canForage = _canForage;
     canHunt = _canHunt;

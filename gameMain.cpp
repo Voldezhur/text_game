@@ -153,14 +153,14 @@ int main()
     dungeon->setFlavourText("in a damp, dark cave. A very unpleasant place to be in.\nYou can see rats, spiders and other critters scattering about as you traverse the cave\nYou also spot something shiny deeper in the darkness");
     dungeon->setDescription("an abandoned dungeon");
     
-    spawnArea->setNorth(dungeon);
+    spawnArea->setSouth(dungeon);
 
 
     Location* lake = new Location(true, false, false);
     lake->setFlavourText("at a small lake. You can see fish in the water.\nYou think you could probably catch some of the fish, provided you had a fishing pole");
     lake->setDescription("a lake");
 
-    town->setWest(lake);
+    town->setNorth(lake);
 
 
     // ===================================

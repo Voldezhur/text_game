@@ -1,8 +1,8 @@
 --- short term
-. Fix segfault when travelling to dungeon
+. Add hunting mechanic
 
 --- mid term
-. Add hunting mechanic
+. Add random combat encounters in hostile locations
 
 --- long term
 . Add inventory
