@@ -12,8 +12,6 @@ class Location
     // other attributes
     std::string flavourText, description;
 
-    bool canForage, canHunt, isHostile;
-
 public:
     // default constructor
     Location();
@@ -21,6 +19,8 @@ public:
     // constructor
     Location(bool _canForage, bool _canHunt, bool _isHostile);
 
+    // various attributes
+    bool canForage, canHunt, isHostile;
 
     // ==========================
     // set methods
