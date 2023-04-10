@@ -97,7 +97,7 @@ Location* Location::getEast()
 
 void Location::lookAround()
 {
-    std::cout << "You find yourself in " << flavourText << "\n\n";
+    std::cout << "You find yourself " << flavourText << "\n";
 }
 
 void Location::printFlavourText()
