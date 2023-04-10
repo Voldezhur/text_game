@@ -150,7 +150,7 @@ int main()
 
 
     Location* dungeon = new Location(true, true, true);    
-    dungeon->setFlavourText("in a damp, dark cave. A very unpleasant place to be in.\nYou can see rats, spiders and other critters scattering about as you traverse the cave\nYou also spot something shiny deeper in the darkness");
+    dungeon->setFlavourText("in a damp, dark cave. A very unpleasant place to be in.\nYou can see rats, spiders and other critters skittering about as you traverse the cave\nYou also spot something shiny deeper in the darkness");
     dungeon->setDescription("an abandoned dungeon");
     
     spawnArea->setSouth(dungeon);
