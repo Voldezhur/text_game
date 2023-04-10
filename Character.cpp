@@ -42,7 +42,7 @@ bool Character::fight(Character* enemy)
 
     bool fightLoop = true;
 
-    while(hp > 0 && fightLoop)
+    while(hp > 0 && enemy->hp > 0 && fightLoop)
     {
         std::cout << "\nYour hp - " << hp << '\n';
         std::cout << enemy->name << "'s hp - " << enemy->hp << '\n';
@@ -79,9 +79,12 @@ bool Character::fight(Character* enemy)
 
 
         // enemy's turn
-        hp -= enemy->dmg;
-        std::cout << enemy->name << " attacks " << name << " for " << enemy->dmg << " damage!\n";
-        std::cout << name << "'s health is now " << hp << '\n';
+        if(enemy->hp > 0)
+        {
+            hp -= enemy->dmg;
+            std::cout << enemy->name << " attacks " << name << " for " << enemy->dmg << " damage!\n";
+            std::cout << name << "'s health is now " << hp << '\n';
+        }
     }
 
     if(hp <= 0)

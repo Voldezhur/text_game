@@ -310,7 +310,23 @@ int main()
             {
                 if(playerLocation->canHunt)
                 {
-                    std::cout << "\nCan't hunt in this version of the game\n";
+                    Character boar(1, 2, 2, 1);
+                    boar.name = "boar";
+
+                    if(player.fight(&boar))
+                    {
+                        std::cout << "\nVictory\n";
+                    }
+                    
+                    else
+                    {
+                        std::cout << "\nYou lose\n";
+
+                        if(player.hp <= 0)
+                        {
+                            mainGameLoop = false;
+                        }
+                    }
                 } 
 
                 else
@@ -335,7 +351,14 @@ int main()
         }
     }
 
+    // if player died
+    if(player.hp <= 0)
+    {
+        std::cout << "\nRIP, " << player.name << ", your legacy shall never be forgotten\n";
+    }
+
     // game end
+
     std::cout << divider << "Game ended\n";
 
     delete spawnArea;

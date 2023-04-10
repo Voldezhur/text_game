@@ -1,12 +1,17 @@
 --- short term
-. Add hunting mechanic
+. Make dmg in combat random 
 
 --- mid term
 . Add random combat encounters in hostile locations
+. Make an ambushing mechanic to get first turn
+. Make enemy movements random
 
 --- long term
+. Add leveling system
 . Add inventory
 
 --- ideas
+. Have a pause between inputs so as to not  confuse the player with too much text at once
+. Add ascii map that player can view with a command
 . Make stats and actions scalable to allow for addition of new ones later
 . Display both the player actions and actions appropriate for the location
