@@ -24,6 +24,9 @@ Character::Character(int lv, int s, int e, int lc)
     str.statName = "Strength";
     end.statName = "Endurance";
     lck.statName = "Luck";
+
+    name = "*placeholderName";
+    introduction = "*placeholderIntroduction";
 }
 
 // prints stats
@@ -41,7 +44,7 @@ void Character::printStats()
 // fight method, returns true, if won, false if lost
 bool Character::fight(Character enemy)
 {
-    std::cout << "\nAttacked " << enemy.name << "!\n\n";
+    std::cout << '\n' << enemy.introduction << '\n';
 
     bool fightLoop = true;
 

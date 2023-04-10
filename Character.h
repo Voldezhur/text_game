@@ -19,7 +19,7 @@ class Character
 public:
     int lvl, exp, hp, dmg;
     stat str, end, lck;
-    std::string name;
+    std::string name, introduction;
 
     // constructor
     Character(int lv, int s, int e, int lc);
