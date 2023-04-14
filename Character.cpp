@@ -94,7 +94,7 @@ bool Character::fight(Character enemy)
 
     if(hp <= 0)
     {
-        std::cout << '\n' << name << " collapses on the ground, unconsious\n";
+        std::cout << "\nThe " << name << " collapses on the ground, unconsious\n";
         return false;
     }
 
