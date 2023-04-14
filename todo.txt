@@ -1,11 +1,16 @@
+--- currently working on
+. Add different death flavour text to different enemies
+
+
+==========================
+
+
 --- short term
-. Make enemies drop exp according to their level
-. Add leveling system
+. Make item class
+. Add inventory
 
 
 --- mid term
-. Make item class
-. Add inventory
 . Make lootTables for mobs and locations
 
 
@@ -16,10 +21,12 @@
 . Make dmg in combat random but still dependent on strength
 
 
+==========================
+
+
 --- ideas
 . Put all objects of classes into separate files for ease
 . Make an ambushing mechanic dependent on luck to get first turn
-. Add different death flavour text to different enemies
 
 
 --- not likely

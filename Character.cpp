@@ -29,8 +29,9 @@ Character::Character(int lv, int s, int e, int lc)
     end.statName = "Endurance";
     lck.statName = "Luck";
 
-    name = "*placeholderName";
-    introduction = "*placeholderIntroduction";
+    name = "*placeholderName*";
+    introduction = "*placeholderIntroduction*";
+    deathMessage = "*placeholderDeathMessage*";
 }
 
 // prints stats
@@ -153,7 +154,7 @@ bool Character::fight(Character enemy)
     // died
     if(hp <= 0)
     {
-        std::cout << "\nThe " << name << " collapses on the ground, unconsious\n";
+        std::cout << enemy.deathMessage;
         return false;
     }
 

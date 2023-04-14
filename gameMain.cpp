@@ -170,10 +170,12 @@ int main()
     Character boar(1, 2, 2, 1);
     boar.name = "boar";
     boar.introduction = "A boar rushes at you from the shrubbery!";
+    boar.deathMessage = "\nThe boar collapses on the ground, unconsious\n";
 
     Character skeleton(3, 5, 5, 2);
     skeleton.name = "skeleton";
     skeleton.introduction = "A skeleton shambles towards you!";
+    skeleton.deathMessage = "\nThe skeleton fall on the ground in a pile of bones\n";
 
 
     // ===================================
