@@ -17,7 +17,7 @@ struct stat
 class Character
 {
 public:
-    int lvl, exp, hp, dmg;
+    int lvl, exp, expMax, hp, dmg;
     stat str, end, lck;
     std::string name, introduction;
 
@@ -26,6 +26,9 @@ public:
 
     // prints stats
     void printStats();
+
+    // level up and assign attribute points
+    void lvlUp(int points);
 
     // fight method, returns true, if won, false if lost
     bool fight(Character enemy);

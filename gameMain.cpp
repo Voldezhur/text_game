@@ -2,6 +2,8 @@
 
 
 #include <iostream>
+#include <string>
+#include <time.h>
 #include "Location.h"
 #include "Character.h"
 
@@ -394,7 +396,7 @@ int main()
 
     // game end
 
-    std::cout << divider << "Game ended\n";
+    std::cout << divider << "Game ended\n\n";
 
     delete spawnArea;
     delete town;

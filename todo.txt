@@ -1,20 +1,26 @@
 --- short term
-. Implement foraging mechanic
-. Add random combat encounters when foraging in hostile locations
+. Make enemies drop exp according to their level
+. Add leveling system
+
 
 --- mid term
-. Make enemy actions random
+. Make item class
+. Add inventory
+. Make lootTables for mobs and locations
+
 
 --- long term
-. Add leveling system
-. Enemies drop exp according to their level
-. Add inventory
+. Implement foraging mechanic dependent on luck
+. Add random combat encounters when foraging in hostile locations
 . Polish hunting experience
 . Make dmg in combat random but still dependent on strength
+
 
 --- ideas
 . Put all objects of classes into separate files for ease
 . Make an ambushing mechanic dependent on luck to get first turn
+. Add different death flavour text to different enemies
+
 
 --- not likely
 . Have a pause between inputs so as to not  confuse the player with too much text at once
