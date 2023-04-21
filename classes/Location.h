@@ -46,6 +46,9 @@ public:
     
     void setDescription(std::string S);
     
+    template <size_t N>
+    void setLootTable(Item (&_lootTable)[N]);
+
 
     // ==========================
     // get methods
@@ -62,7 +65,6 @@ public:
 
 
     Location* getEast();
-
 
 
     // ==========================

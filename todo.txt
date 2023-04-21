@@ -1,20 +1,21 @@
 --- currently working on
-. Make lootTables for mobs and locations
+. Implement foraging mechanic dependent on luck
+. Make lootTables for all locations
 
 
 ==========================
 
 
 --- short term
-. Implement foraging mechanic dependent on luck
+. Add inventory
+. Make lootTables for mobs
 
 
 --- mid term
-. Add inventory
+. Add random combat encounters when foraging in hostile locations
 
 
 --- long term
-. Add random combat encounters when foraging in hostile locations
 . Polish hunting experience
 . Make dmg in combat random but still dependent on strength
 

@@ -1,11 +1,11 @@
-// g++ -o gameMain gameMain.cpp Location.cpp Character.cpp && ./gameMain
+// g++ -o gameMain gameMain.cpp classes/Location.cpp classes/Character.cpp classes/Item.cpp && ./gameMain
 
 
 #include <iostream>
 #include <string>
 #include <time.h>
-#include "Location.h"
-#include "Character.h"
+#include "classes/Location.h"
+#include "classes/Character.h"
 
 
 int main()
@@ -138,10 +138,17 @@ int main()
 
 
     // ===================================
+    // item creation
+    Item coin("a coin");
+    Item flower("a flower");
+
+    // ===================================
     // map creation
     Location* spawnArea = new Location(true, true, false);
     spawnArea->setFlavourText("in a clearing of a forest, filled with all types of flowers and wild plants.\nYou sometimes see an occasional squirrel jump from one tree to another");
     spawnArea->setDescription("a forest clearing");
+    Item spawnAreaLootTable[] = {coin, flower};
+    spawnArea->setLootTable(spawnAreaLootTable);
 
 
     Location* town = new Location(false, false, false);

@@ -68,6 +68,18 @@ void Location::setDescription(std::string S)
     description = S;
 }
     
+template <size_t N>
+void Location::setLootTable(Item (&_lootTable)[N])
+{
+    for(int i = 0; i < sizeof(&_lootTable); i++)
+    {
+        for(Item i : _lootTable)
+        {
+            
+        }
+    }
+}
+
 
 // ==========================
 // get methods
