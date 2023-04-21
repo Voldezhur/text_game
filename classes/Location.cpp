@@ -1,5 +1,11 @@
 #include "Location.h"
 
+// destructor
+Location::~Location()
+{
+    delete[] lootTable;
+}
+
 // default constructor
 Location::Location()
 {

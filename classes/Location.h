@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include "Item.h"
 
 class Location
 {
@@ -12,7 +13,15 @@ class Location
     // other attributes
     std::string flavourText, description;
 
+    int lootTableSize;
+    Item* lootTable = new Item[lootTableSize];
+
+
+
 public:
+    // destructor
+    ~Location();
+    
     // default constructor
     Location();
 

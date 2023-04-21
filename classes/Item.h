@@ -3,9 +3,10 @@
 class Item
 {    
 public:
+    Item();
+    Item(std::string _name);
+    
     std::string name, description;
 
     int price;
-
-    Item(std::string _name);
 };
