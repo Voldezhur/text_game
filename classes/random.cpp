@@ -4,7 +4,8 @@
 
 double A = time(nullptr);
 
-unsigned int fonNeyman(unsigned int x){
+// fonNeyman randomizer
+unsigned int roll(unsigned int x){
     if(x < 8){
         // get the number from which to get the random value
         std::string B = std::to_string(A*A);

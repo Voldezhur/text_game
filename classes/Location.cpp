@@ -1,5 +1,5 @@
 #include "Location.h"
-
+#include "random.cpp"
 
 // default constructor
 Location::Location()
@@ -104,4 +104,19 @@ void Location::lookAround()
 void Location::printFlavourText()
 {
     std::cout << flavourText << '\n';
+}
+
+void Location::forage(int luck)
+{
+    if(true)
+    {
+        Item foundItem = lootTable[roll(lootTable.size() - 1)];
+
+        std::cout << '\n' << foundItem.name;
+    }
+   
+    else
+    {
+        std::cout << "\nFound nothing";
+    }
 }

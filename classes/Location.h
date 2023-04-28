@@ -76,4 +76,6 @@ public:
     void lookAround();
 
     void printFlavourText();
+
+    void forage(int luck);
 };
