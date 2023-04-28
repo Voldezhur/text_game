@@ -4,5 +4,13 @@
 
 int main()
 {
-    std::cout << fonNeyman(5);
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
+    std::cout << fonNeyman(1) % 2 << '\n';
 }
