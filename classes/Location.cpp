@@ -106,11 +106,14 @@ void Location::printFlavourText()
     std::cout << flavourText << '\n';
 }
 
+// luck determines if foraging is successful or not, after that, an item is picked
+// at random from te lootTable
 void Location::forage(int luck)
 {
-    if(true)
+    if(roll(luck) >= 5)
     {
-        Item foundItem = lootTable[roll(lootTable.size() - 1)];
+        // get random 
+        Item foundItem = lootTable[roll(lootTable.size() - 1) % 2];
 
         std::cout << '\n' << foundItem.name;
     }
