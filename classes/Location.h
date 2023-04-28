@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <vector>
 #include "Item.h"
 
 class Location
@@ -13,15 +14,11 @@ class Location
     // other attributes
     std::string flavourText, description;
 
-    int lootTableSize;
-    Item* lootTable = new Item[lootTableSize];
+    std::vector<Item> lootTable;
 
 
 
 public:
-    // destructor
-    ~Location();
-    
     // default constructor
     Location();
 
@@ -47,7 +44,13 @@ public:
     void setDescription(std::string S);
     
     template <size_t N>
-    void setLootTable(Item (&_lootTable)[N]);
+    void setLootTable(Item (&_lootTable)[N])
+    {
+        for(int i = 0; i < N; i++)
+        {
+            lootTable.push_back(_lootTable[i]);
+        }
+    }
 
 
     // ==========================
