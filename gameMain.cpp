@@ -372,7 +372,7 @@ int main()
             {
                 if(playerLocation->canForage)
                 {
-                    std::cout << "\nCan't forage in current game version\n";
+                    playerLocation->forage(player.lck.value);
                 }
 
                 else
