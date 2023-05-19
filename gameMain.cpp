@@ -1,3 +1,4 @@
+// Чтобы запустить:
 // g++ -o gameMain gameMain.cpp classes/Location.cpp classes/Character.cpp classes/Item.cpp && ./gameMain
 
 
@@ -184,6 +185,10 @@ int main()
     skeleton.introduction = "A skeleton shambles towards you!";
     skeleton.deathMessage = "\nThe skeleton fall on the ground in a pile of bones\n";
 
+    Character enderDragon(100, 999, 999, 999);
+    enderDragon.name = "Ender Dragon";
+    enderDragon.introduction = "An Ender dragon soar through the sky and towards you!";
+    enderDragon.deathMessage = "\nI don't know how you managed to accomplish this, but you have slain the Ender dragon\n";
 
     // ===================================
     // game start
