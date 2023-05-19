@@ -154,7 +154,6 @@ bool Character::fight(Character enemy)
     // died
     if(hp <= 0)
     {
-        std::cout << enemy.deathMessage;
         return false;
     }
 
